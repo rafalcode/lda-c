@@ -19,7 +19,8 @@
 
 #include "lda-alpha.h"
 
-/* * objective function and its derivatives * */
+/* objective function and its derivatives * */
+/* Mne's: a, alpha; alhood: alpha likelihood */
 
 double alhood(double a, double ss, int D, int K)
 {
@@ -47,7 +48,7 @@ double opt_alpha(double ss, int D, int K) /* newtons method */
         iter++;
         a = exp(log_a);
         if (isnan(a)) {
-            init_a = init_a * 10;
+            init_a *= 10; /* sic */
             printf("warning : alpha is nan; new init = %5.5f\n", init_a);
             a = init_a;
             log_a = log(a);

@@ -24,27 +24,9 @@ int ESTIMATE_ALPHA;
 double INITIAL_ALPHA;
 int NTOPICS;
 
-double doc_e_step(document* doc,
-                  double* gamma,
-                  double** phi,
-                  lda_model* model,
-                  lda_suffstats* ss);
-
-void save_gamma(char* filename,
-                double** gamma,
-                int num_docs,
-                int num_topics);
-
-void run_em(char* start,
-            char* directory,
-            corpus* corpus);
-
+double doc_e_step(document* doc, double* gamma, double** phi, lda_model* model, lda_suffstats* ss);
+void save_gamma(char* filename, double** gamma, int num_docs, int num_topics); 
+void run_em(char* start, char* directory, corpus* corpus);
 void read_settings(char* filename);
-
-void infer(char* model_root,
-           char* save,
-           corpus* corpus);
-
+void infer(char* model_root, char* save, corpus* corpus);
 #endif
-
-

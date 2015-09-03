@@ -299,13 +299,10 @@ lda_model* load_lda_model(char* model_root)
     printf("loading %s\n", filename);
     fileptr = fopen(filename, "r");
     for (i = 0; i < num_topics; i++)
-    {
-        for (j = 0; j < num_terms; j++)
-        {
+        for (j = 0; j < num_terms; j++) {
             fscanf(fileptr, "%f", &x);
             model->log_prob_w[i][j] = x;
         }
-    }
     fclose(fileptr);
     return(model);
 }
